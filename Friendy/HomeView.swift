@@ -14,7 +14,7 @@ struct HomeView: View {
             VStack(alignment: .leading){
                 Spacer()
                 Text("Current Friendy").font(.custom("NotoSansJP-Bold", size: 30.0)).padding(.horizontal).padding(.horizontal).padding(.horizontal)
-                ColorList(colors: [.blue, .green, .orange, .red, .gray, .pink, .yellow, .clear])
+                ColorList(colors: ["sample1", "sample2", "sample3", "sample4", "sample5"])
                 Spacer()
             }
         }
