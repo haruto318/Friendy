@@ -30,6 +30,7 @@
 		64B65DFE2B8749EE00C60D24 /* NotoSansJP-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64B65DF22B8749EE00C60D24 /* NotoSansJP-ExtraLight.ttf */; };
 		64B65DFF2B8749EE00C60D24 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 64B65DF32B8749EE00C60D24 /* OFL.txt */; };
 		64B65E002B8749EE00C60D24 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 64B65DF42B8749EE00C60D24 /* README.txt */; };
+		64B65E032B87A30E00C60D24 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E022B87A30E00C60D24 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		64B65DF32B8749EE00C60D24 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		64B65DF42B8749EE00C60D24 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		64B65E012B874A0B00C60D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		64B65E022B87A30E00C60D24 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				64B65E012B874A0B00C60D24 /* Info.plist */,
 				64B65DE72B8749EE00C60D24 /* Noto_Sans_JP  */,
 				64B65DB32B872B1400C60D24 /* FriendyApp.swift */,
+				64B65E022B87A30E00C60D24 /* DetailView.swift */,
 				64B65DB52B872B1400C60D24 /* ContentView.swift */,
 				64B65DDF2B872B5100C60D24 /* TabBar.swift */,
 				64B65DE12B872CCC00C60D24 /* TabButton.swift */,
@@ -338,6 +341,7 @@
 				64B65DE02B872B5100C60D24 /* TabBar.swift in Sources */,
 				64B65DE22B872CCC00C60D24 /* TabButton.swift in Sources */,
 				64B65DB62B872B1400C60D24 /* ContentView.swift in Sources */,
+				64B65E032B87A30E00C60D24 /* DetailView.swift in Sources */,
 				64B65DE62B87445000C60D24 /* HomeView.swift in Sources */,
 				64B65DE42B873BB400C60D24 /* ColorList.swift in Sources */,
 				64B65DB42B872B1400C60D24 /* FriendyApp.swift in Sources */,
@@ -429,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -486,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

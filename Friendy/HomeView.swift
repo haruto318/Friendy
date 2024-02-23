@@ -7,16 +7,45 @@
 
 import SwiftUI
 
+struct CardData: Identifiable, Hashable {
+    var id = UUID()
+    let image: String
+    let name: String
+    let nickname: String
+    let address: String
+    let twitter: String
+    let instagram: String
+    let github: String
+    let blog: String
+}
+
 struct HomeView: View {
+    @State var CardArray: [CardData] = [CardData(image: "sample1" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample2" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample3" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample4" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames")]
+    
+    @State var show: Bool = false
+    @Namespace var namespace
+    @State var currentCard: CardData =
+    CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames")
+    
+//    @State var isShowDetail: Bool = false
     var body: some View {
         ZStack{
             Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
-            VStack(alignment: .leading){
-                Spacer()
-                Text("Current Friendy").font(.custom("NotoSansJP-Bold", size: 30.0)).padding(.horizontal).padding(.horizontal).padding(.horizontal)
-                ColorList(colors: ["sample1", "sample2", "sample3", "sample4", "sample5"])
-                Spacer()
-            }
+            
+            ColorList(cards: CardArray, currentCard: currentCard)
+            
+//            if show == true {
+//                DetailView(Card: currentCard, show: $show)
+//            } else {
+//                VStack(alignment: .leading){
+//                    Spacer()
+//                    Text("Friendy").font(.custom("NotoSansJP-Bold", size: 30.0)).padding().padding(.horizontal).padding(.horizontal)
+//                    Spacer()
+//                    ColorList(cards: CardArray, show: $show, currentCard: $currentCard)
+//                    Spacer()
+//                }
+//            }
+            
         }
     }
 }
