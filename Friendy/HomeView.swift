@@ -30,7 +30,7 @@ struct HomeView: View {
     var body: some View {
         ZStack{
             Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
-            
+                
             ColorList(cards: CardArray, show: $show, currentCard: $currentCard)
             
         }

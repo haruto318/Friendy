@@ -48,42 +48,61 @@ struct ColorList: View {
             }
             .edgesIgnoringSafeArea(.all)        }
         else {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 300) {
-                    ForEach(cards, id: \.self) { card in
-                        GeometryReader { geometry in
-                            Image(decorative: card.image)
-                                .resizable()
-                                .scaledToFill()
+            VStack{
+                HStack{
+                    VStack(alignment: .leading, spacing: 5){
+                        Text("けまり")
+                            .font(.custom("NotoSansJP-Medium", size: 24.0))
+                            .foregroundStyle(Color(UIColor.init(hexString: "333333")))
+                        Text("haruto.yhs318@gmail")
+                            .font(.custom("NotoSansJP-Regular", size: 14.0))
+                            .foregroundStyle(Color(UIColor.init(hexString: "333333")))
+                            .opacity(0.5)
+                    }
+                    Spacer()
+                    Circle().frame(width: 50, height: 50)
+                }.padding().padding(.horizontal)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 300) {
+                        ForEach(cards, id: \.self) { card in
+                            GeometryReader { geometry in
+                                Image(decorative: card.image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 300, height: 300, alignment: .center)
+                                    .cornerRadius(16)
+                                    .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+                                    .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
+                                    .scaleEffect(self.isDetectingLongPress ? 0.97 : 1.0)
+                                    .matchedGeometryEffect(id: "image\(card.id)", in: namespace)
+                                    .onTapGesture {
+                                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                                            show.toggle()
+                                            currentCard = card
+                                            print(card.image)
+                                        }
+                                    }
+                            }
+                        }
+                        GeometryReader { geometry in ///透明画像
+                            Rectangle()
+                                .foregroundColor(.clear)
                                 .frame(width: 300, height: 300, alignment: .center)
                                 .cornerRadius(16)
                                 .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
                                 .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
-                                .scaleEffect(self.isDetectingLongPress ? 0.97 : 1.0)
-                                .matchedGeometryEffect(id: "image\(card.id)", in: namespace)
-                                .onTapGesture {
-                                    withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                                        show.toggle()
-                                        currentCard = card
-                                        print(card.image)
-                                    }
-                                }
                         }
-                    }
-                    GeometryReader { geometry in ///透明画像
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 300, height: 300, alignment: .center)
-                            .cornerRadius(16)
-                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
-                            .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
-                    }
-                }.padding(.horizontal, 50)
+                    }.padding(.horizontal, 50)
                         .padding(.vertical, 100)
-
+                    
+                }
             }
         }
     }
+}
+
+#Preview {
+    HomeView()
 }
 
 //#Preview {
