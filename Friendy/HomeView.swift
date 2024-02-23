@@ -27,24 +27,11 @@ struct HomeView: View {
     @State var currentCard: CardData =
     CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames")
     
-//    @State var isShowDetail: Bool = false
     var body: some View {
         ZStack{
             Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
             
-            ColorList(cards: CardArray, currentCard: currentCard)
-            
-//            if show == true {
-//                DetailView(Card: currentCard, show: $show)
-//            } else {
-//                VStack(alignment: .leading){
-//                    Spacer()
-//                    Text("Friendy").font(.custom("NotoSansJP-Bold", size: 30.0)).padding().padding(.horizontal).padding(.horizontal)
-//                    Spacer()
-//                    ColorList(cards: CardArray, show: $show, currentCard: $currentCard)
-//                    Spacer()
-//                }
-//            }
+            ColorList(cards: CardArray, show: $show, currentCard: $currentCard)
             
         }
     }

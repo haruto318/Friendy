@@ -1,10 +1,3 @@
-//
-//  ColorList.swift
-//  Friendy
-//
-//  Created by 濱野遥斗 on 2024/02/22.
-//
-
 import SwiftUI
 
 struct ColorList: View {
@@ -16,8 +9,8 @@ struct ColorList: View {
     @State var isDetectingLongPress: Bool = false
     @State var totalNumberOfTaps = 0
     
-    @State var show: Bool = false
-    @State var currentCard: CardData
+    @Binding var show: Bool
+    @Binding var currentCard: CardData
     @Namespace var namespace
     
     var body: some View {
@@ -76,24 +69,23 @@ struct ColorList: View {
                                     }
                                 }
                         }
-                        GeometryReader { geometry in ///透明画像
-                            Rectangle()
-                                .foregroundColor(.clear)
-                                .frame(width: 300, height: 300, alignment: .center)
-                                .cornerRadius(16)
-                                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
-                                .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
-                        }
-                    }.padding(.horizontal, 50)
+                    }
+                    GeometryReader { geometry in ///透明画像
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 300, height: 300, alignment: .center)
+                            .cornerRadius(16)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+                            .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
+                    }
+                }.padding(.horizontal, 50)
                         .padding(.vertical, 100)
-                    
-                }
+
             }
-            
         }
     }
 }
 
-#Preview {
-    ColorList(cards: [CardData(image: "sample1" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample2" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample3" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample4" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"), CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames")], currentCard: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"))
-}
+//#Preview {
+//    ColorList(colors: ["sample1", "sample2", "sample3", "sample4", "sample5"], show: Binding<Bool> )
+//}
