@@ -11,7 +11,7 @@ struct FriendCard: View {
     var card: CardData
     var body: some View {
         VStack(spacing: 10) {
-            Image(decorative: "sample1")
+            Image(decorative: card.image)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 140, height: 140)
@@ -22,11 +22,11 @@ struct FriendCard: View {
             
             HStack{
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("けまり")
+                    Text(card.nickname)
                         .font(.custom("NotoSansJP-Medium", size:20.0))
                         .foregroundStyle(Color(UIColor.init(hexString: "333333")))
                     
-                    Text("はまの はると")
+                    Text(card.name)
                         .font(.custom("NotoSansJP-Regular", size:10.0))
                         .foregroundStyle(Color(UIColor.init(hexString: "333333")))
                 }
