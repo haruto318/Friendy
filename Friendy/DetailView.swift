@@ -10,10 +10,14 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var Card: CardData
-    @Binding var show: Bool
-    @Namespace var namespace
+    
+    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+//    @Binding var show: Bool
+//    @Namespace var namespace
     
     var body: some View {
+        @State var edge = windowScene?.windows.first?.safeAreaInsets
+        
         ZStack {
             Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
             ScrollView  {
@@ -24,14 +28,16 @@ struct DetailView: View {
                     .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                     .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
                     .zIndex(1)
-                    .matchedGeometryEffect(id: "image\(Card.id)", in: namespace)
+//                    .matchedGeometryEffect(id: "image\(Card.id)", in: namespace)
                     .overlay(
                         VStack{
                             HStack{
                                 Spacer()
                                 Button(action: {
                                     withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                                        show.toggle()
+//                                        show.toggle()
+//                                        self.dismiss()
+                                        presentationMode.wrappedValue.dismiss()
                                     }
                                 }){
                                     Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding(.horizontal)
@@ -42,11 +48,11 @@ struct DetailView: View {
                     )
                 
                 DescriptionView(Card: Card).zIndex(0)
-            }
+            }.padding(.bottom,edge!.bottom + 70)
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: BackButton(action: {presentationMode.wrappedValue.dismiss()}), trailing: Image(systemName: "chevron.backward"))
+//        .navigationBarItems(leading: BackButton(action: {presentationMode.wrappedValue.dismiss()}), trailing: Image(systemName: "chevron.backward"))
     }
 }
 

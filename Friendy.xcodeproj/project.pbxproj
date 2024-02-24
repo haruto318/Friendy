@@ -35,6 +35,7 @@
 		64B65E092B89D6DB00C60D24 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E082B89D6DB00C60D24 /* Card.swift */; };
 		64B65E0C2B89D77100C60D24 /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E0B2B89D77100C60D24 /* FriendCard.swift */; };
 		64B65E142B89E9C200C60D24 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E132B89E9C200C60D24 /* HeaderView.swift */; };
+		64B65E162B8A052F00C60D24 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E152B8A052E00C60D24 /* DatePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		64B65E082B89D6DB00C60D24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64B65E0B2B89D77100C60D24 /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 		64B65E132B89E9C200C60D24 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		64B65E152B8A052E00C60D24 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				64B65E0B2B89D77100C60D24 /* FriendCard.swift */,
+				64B65E152B8A052E00C60D24 /* DatePickerView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				64B65DB62B872B1400C60D24 /* ContentView.swift in Sources */,
 				64B65E032B87A30E00C60D24 /* DetailView.swift in Sources */,
 				64B65DE62B87445000C60D24 /* HomeView.swift in Sources */,
+				64B65E162B8A052F00C60D24 /* DatePickerView.swift in Sources */,
 				64B65DE42B873BB400C60D24 /* ColorList.swift in Sources */,
 				64B65E142B89E9C200C60D24 /* HeaderView.swift in Sources */,
 				64B65E062B89953B00C60D24 /* FriendListView.swift in Sources */,
