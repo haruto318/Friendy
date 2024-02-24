@@ -20,7 +20,7 @@ struct FriendCard: View {
                 .padding(.top, 10)
 
             
-            HStack{
+            HStack(alignment: .bottom){
                 VStack(alignment: .leading, spacing: 5) {
                     Text(card.nickname)
                         .font(.custom("NotoSansJP-Medium", size:20.0))
@@ -30,9 +30,16 @@ struct FriendCard: View {
                         .font(.custom("NotoSansJP-Regular", size:10.0))
                         .foregroundStyle(Color(UIColor.init(hexString: "333333")))
                 }
-                .padding(.horizontal)
+//                .padding(.horizontal)
                 Spacer()
+                Button(action: {
+//                    card.like = !card.like
+                }){
+                    Image(systemName: card.like ? "heart.fill": "heart").foregroundColor(card.like ? .red: .black)
+                        .font(.system(size: 20))
+                }
             }
+            .padding(.horizontal)
             Spacer()
         }
         .frame(width: 160, height: 230)
