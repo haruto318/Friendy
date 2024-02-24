@@ -16,7 +16,7 @@ struct TabBar: View{
             TabView(selection: $current){
                 HomeView().tag("Home")
                 Text("Message").tag("Messages")
-                Text("Account").tag("Account")
+                FriendListView().tag("Account")
             }
             
             HStack(spacing: 0){
