@@ -15,19 +15,7 @@ struct FriendListView: View {
             ZStack{
                 Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
                 ScrollView {
-                    HStack{
-                        VStack(alignment: .leading, spacing: 5){
-                            Text("けまり")
-                                .font(.custom("NotoSansJP-Medium", size: 24.0))
-                                .foregroundStyle(Color(UIColor.init(hexString: "333333")))
-                            Text("haruto.yhs318@gmail")
-                                .font(.custom("NotoSansJP-Regular", size: 14.0))
-                                .foregroundStyle(Color(UIColor.init(hexString: "333333")))
-                                .opacity(0.5)
-                        }
-                        Spacer()
-                        Circle().frame(width: 50, height: 50)
-                    }.padding().padding(.horizontal)
+                    HeaderView()
                     
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(CardArray, id: \.id) { card in
