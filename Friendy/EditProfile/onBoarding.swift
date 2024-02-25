@@ -21,7 +21,7 @@ struct OnBoarding: View {
     @State var selection = 1
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             VStack(spacing: 10){
                 ProgressBar(progressVal: $progressVal, selection: selection)
                 
@@ -47,7 +47,7 @@ struct OnBoarding: View {
                 
                 Spacer()
             }
-        }
+//        }
     }
 }
 

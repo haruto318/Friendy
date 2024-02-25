@@ -21,7 +21,7 @@ struct HeaderView: View {
             }
             Spacer()
             NavigationLink(destination: {
-                DetailView(Card: HeaderCard)
+                DetailView(Card: HeaderCard, isDetailView: true)
             }){
                 Image(decorative: HeaderCard.image)
                     .resizable()

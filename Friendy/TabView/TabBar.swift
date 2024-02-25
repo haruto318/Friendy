@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBar: View{
     @State var current = "Home"
+    @EnvironmentObject var viewStatus: ViewStatusModel
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)){
@@ -37,6 +38,8 @@ struct TabBar: View{
             .padding(.horizontal, 25)
             .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 0)
             
+        }.fullScreenCover(isPresented: $viewStatus.isShowEditView) {
+            OnBoarding()
         }
     }
 }

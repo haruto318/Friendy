@@ -44,7 +44,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabBar()
+        TabBar().environmentObject(ViewStatusModel())
 
     }
 }

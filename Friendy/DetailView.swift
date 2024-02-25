@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var Card: CardData
+    var isDetailView: Bool
     
     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
 //    @Binding var show: Bool
@@ -47,7 +48,7 @@ struct DetailView: View {
                         }.padding()
                     )
                 
-                DescriptionView(Card: Card).zIndex(0).padding(.bottom,edge!.bottom + 70)
+                DescriptionView(Card: Card, isDetailView: isDetailView).zIndex(0).padding(.bottom,edge!.bottom + 70)
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -59,6 +60,8 @@ struct DetailView: View {
 
 struct DescriptionView: View {
     var Card: CardData
+    var isDetailView: Bool
+    @EnvironmentObject var viewStatus: ViewStatusModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20){
@@ -133,24 +136,28 @@ struct DescriptionView: View {
             .background(Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea())
             
             Spacer()
-            HStack{
-                Spacer()
-                Text("プロフィールを編集").font(.custom("NotoSansJP-Medium", size: 16.0)).foregroundStyle(Color(UIColor(hexString: "000000")))
-                    .background(.clear)
-                    .frame(width: 320, height: 50)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 1)
-                    )
-                    .onTapGesture {
-                        withAnimation(.none) {
-                            print("push")
-//                                    imageState.toggle()
+            
+            if isDetailView {
+                HStack{
+                    Spacer()
+                    Text("プロフィールを編集").font(.custom("NotoSansJP-Medium", size: 16.0)).foregroundStyle(Color(UIColor(hexString: "000000")))
+                        .background(.clear)
+                        .frame(width: 320, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 1)
+                        )
+                        .onTapGesture {
+                            withAnimation(.none) {
+                                print("push")
+                                viewStatus.isShowEditView = true
+                                //                                    imageState.toggle()
+                            }
                         }
-                    }
+                    Spacer()
+                }
                 Spacer()
             }
-            Spacer()
             
         }.padding().padding(.horizontal)
         
@@ -190,5 +197,5 @@ struct BackButton: View {
 
 
 #Preview {
-    DetailView(Card: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames", like: true))
+    DetailView(Card: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames", like: true), isDetailView: true)
 }

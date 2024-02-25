@@ -47,6 +47,7 @@
 		64B65E2D2B8B15D700C60D24 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E2C2B8B15D700C60D24 /* ProgressBar.swift */; };
 		64B65E2F2B8B165F00C60D24 /* NavigateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E2E2B8B165F00C60D24 /* NavigateButton.swift */; };
 		64B65E312B8B1D6F00C60D24 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E302B8B1D6F00C60D24 /* CustomTextField.swift */; };
+		64B65E332B8B74B100C60D24 /* ViewStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E322B8B74B100C60D24 /* ViewStatusModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		64B65E2C2B8B15D700C60D24 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		64B65E2E2B8B165F00C60D24 /* NavigateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateButton.swift; sourceTree = "<group>"; };
 		64B65E302B8B1D6F00C60D24 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		64B65E322B8B74B100C60D24 /* ViewStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStatusModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				64B65E082B89D6DB00C60D24 /* Card.swift */,
 				64B65E1D2B8B0A1A00C60D24 /* Counter.swift */,
 				64B65E1F2B8B0A7500C60D24 /* CounterView.swift */,
+				64B65E322B8B74B100C60D24 /* ViewStatusModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				64B65E282B8B14F200C60D24 /* PageTwoView.swift in Sources */,
 				64B65E1E2B8B0A1A00C60D24 /* Counter.swift in Sources */,
 				64B65E202B8B0A7500C60D24 /* CounterView.swift in Sources */,
+				64B65E332B8B74B100C60D24 /* ViewStatusModel.swift in Sources */,
 				64B65E2F2B8B165F00C60D24 /* NavigateButton.swift in Sources */,
 				64B65DE22B872CCC00C60D24 /* TabButton.swift in Sources */,
 				64B65DB62B872B1400C60D24 /* ContentView.swift in Sources */,
