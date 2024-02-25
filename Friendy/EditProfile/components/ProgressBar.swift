@@ -9,9 +9,20 @@ import SwiftUI
 
 struct ProgressBar: View {
     @Binding var progressVal: Double
+    var selection: Int
     var body: some View {
         VStack(alignment: .leading){ ///画面上部のバー
-            Text("プロフィールを編集").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
+            HStack{
+                Text("プロフィールを編集").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
+                Spacer()
+                if selection == 3 {
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("保存").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
+                    })
+                }
+            }
             ProgressView(value: min(max(progressVal, 0.0), 100), total: 100)
                 .animation(.easeInOut, value: progressVal)//バーのアニメーション
                 .tint(Color(UIColor(hexString: "333333")))//バーの色

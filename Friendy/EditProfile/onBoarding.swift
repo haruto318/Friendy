@@ -23,7 +23,7 @@ struct OnBoarding: View {
     var body: some View {
         NavigationView{
             VStack(spacing: 10){
-                ProgressBar(progressVal: $progressVal)
+                ProgressBar(progressVal: $progressVal, selection: selection)
                 
                 Spacer()
                 
