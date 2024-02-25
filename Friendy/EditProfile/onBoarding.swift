@@ -7,12 +7,53 @@
 
 import SwiftUI
 
-struct onBoarding: View {
+
+struct OnBoarding: View {
+    
+    @State var offset: CGFloat = .zero
+    @State var isShowBackBtn: Bool = false
+    @State var isShowNextBtn: Bool = true
+    @State private var progressVal = 0.0
+    
+    @State var inputName: String = ""//旅行名
+    @State var inputDestination: String = ""//行き先
+    
+    @State var selection = 1
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack(spacing: 10){
+                ProgressBar(progressVal: $progressVal)
+                
+                Spacer()
+                
+                ScrollView(showsIndicators: false){
+                    VStack{
+                        if selection == 1 {
+                            PageOneView(inputName: $inputName, inputDestination: $inputDestination)
+                        } else if selection == 2 {
+                            PageTwoView()
+                            
+                        } else {
+                            PageThreeView()
+                            
+                        }
+                
+                    }.animation(.easeIn, value: selection)
+                }
+                
+                NavigateButton(offset: $offset, progressVal: $progressVal, selection: $selection, isShowBackBtn: $isShowBackBtn, isShowNextBtn: $isShowNextBtn )
+            
+                
+                Spacer()
+            }
+        }
     }
 }
 
-#Preview {
-    onBoarding()
+
+struct OnBoarding_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoarding()
+    }
 }

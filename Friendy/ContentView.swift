@@ -37,6 +37,8 @@ extension UIColor {
 }
 
 struct ContentView: View {
+    @State var offset: CGFloat = .zero
+    
     init() {
         UITabBar.appearance().isHidden = true
     }
@@ -46,6 +48,15 @@ struct ContentView: View {
 
     }
 }
+
+extension View {
+    
+    func getScreenBounds() -> CGRect {
+        return UIScreen.main.bounds
+    }
+    
+}
+
 
 #Preview {
     ContentView()
