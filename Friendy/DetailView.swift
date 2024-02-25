@@ -47,8 +47,8 @@ struct DetailView: View {
                         }.padding()
                     )
                 
-                DescriptionView(Card: Card).zIndex(0)
-            }.padding(.bottom,edge!.bottom + 70)
+                DescriptionView(Card: Card).zIndex(0).padding(.bottom,edge!.bottom + 70)
+            }
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
@@ -132,6 +132,20 @@ struct DescriptionView: View {
             }
             .background(Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea())
             
+            Spacer()
+            HStack{
+                Spacer()
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Text("プロフィールを編集").font(.custom("NotoSansJP-Medium", size: 24.0)).foregroundStyle(Color(UIColor.init(hexString: "333333"))).padding()
+                        .frame(width: 320, height: 80)
+                            .background(Color(UIColor(hexString: "FFFFFF")))
+                            .cornerRadius(20.0)
+                            .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 0)
+                })
+                Spacer()
+            }
+            Spacer()
+            
         }.padding().padding(.horizontal)
         
     }
@@ -169,6 +183,6 @@ struct BackButton: View {
 }
 
 
-//#Preview {
-//    DetailView(Card: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames"))
-//}
+#Preview {
+    DetailView(Card: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames", like: true))
+}

@@ -28,7 +28,8 @@ struct FriendListView: View {
                     
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(CardArray, id: \.id) { card in
-                            NavigationLink(destination: DetailView(Card: card)) {
+                            NavigationLink(destination: DetailView(Card: card)
+                            ) {
                                 FriendCard(card: card)
                             }
                         }

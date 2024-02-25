@@ -15,12 +15,13 @@ struct HomeView: View {
     CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames", like: false)
     
     var body: some View {
-        ZStack{
-            Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
+        NavigationView{
+            ZStack{
+                Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
+                ColorList(cards: CardArray, show: $show, currentCard: $currentCard)
                 
-            ColorList(cards: CardArray, show: $show, currentCard: $currentCard)
-            
-        }
+            }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

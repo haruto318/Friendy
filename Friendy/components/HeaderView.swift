@@ -20,7 +20,15 @@ struct HeaderView: View {
                     .opacity(0.5)
             }
             Spacer()
-            Circle().frame(width: 50, height: 50)
+            NavigationLink(destination: {
+                DetailView(Card: HeaderCard)
+            }){
+                Image(decorative: HeaderCard.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
+            }
         }.padding().padding(.horizontal)
     }
 }
