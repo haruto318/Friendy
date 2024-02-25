@@ -135,13 +135,19 @@ struct DescriptionView: View {
             Spacer()
             HStack{
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("プロフィールを編集").font(.custom("NotoSansJP-Medium", size: 24.0)).foregroundStyle(Color(UIColor.init(hexString: "333333"))).padding()
-                        .frame(width: 320, height: 80)
-                            .background(Color(UIColor(hexString: "FFFFFF")))
-                            .cornerRadius(20.0)
-                            .shadow(color: Color.gray.opacity(0.3), radius: 4, x: 0, y: 0)
-                })
+                Text("プロフィールを編集").font(.custom("NotoSansJP-Medium", size: 16.0)).foregroundStyle(Color(UIColor(hexString: "000000")))
+                    .background(.clear)
+                    .frame(width: 320, height: 50)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                    .onTapGesture {
+                        withAnimation(.none) {
+                            print("push")
+//                                    imageState.toggle()
+                        }
+                    }
                 Spacer()
             }
             Spacer()
