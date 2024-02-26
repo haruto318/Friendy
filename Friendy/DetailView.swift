@@ -13,8 +13,7 @@ struct DetailView: View {
     var isDetailView: Bool
     
     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-//    @Binding var show: Bool
-//    @Namespace var namespace
+
     
     var body: some View {
         @State var edge = windowScene?.windows.first?.safeAreaInsets
@@ -26,8 +25,8 @@ struct DetailView: View {
                     .resizable()
                     .aspectRatio(1,contentMode: .fit)
                     .edgesIgnoringSafeArea(.bottom)
-                    .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
-                    .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+                    .cornerRadius(28, corners: [.bottomLeft, .bottomRight])
+                    .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 0)
                     .zIndex(1)
 //                    .matchedGeometryEffect(id: "image\(Card.id)", in: namespace)
                     .overlay(
@@ -41,7 +40,7 @@ struct DetailView: View {
                                         presentationMode.wrappedValue.dismiss()
                                     }
                                 }){
-                                    Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding(.horizontal)
+                                    Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding()
                                 }
                             }
                             Spacer()

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomTextField: View {
     var category: String
-    @State var inputInfo: String = ""
+    @Binding var inputInfo: String
     var body: some View {
         TextField(category, text: $inputInfo)
             .padding()
@@ -25,6 +25,6 @@ struct CustomTextField: View {
     }
 }
 
-#Preview {
-    CustomTextField(category: "名前を入力してください")
-}
+//#Preview {
+//    CustomTextField(category: "名前を入力してください")
+//}

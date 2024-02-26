@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @EnvironmentObject var modelData: DBEditProfileModel
     var body: some View {
         HStack{
             VStack(alignment: .leading, spacing: 5){
-                Text("けまり")
+                Text(modelData.name)
                     .font(.custom("NotoSansJP-Medium", size: 24.0))
                     .foregroundStyle(Color(UIColor.init(hexString: "333333")))
-                Text("haruto.yhs318@gmail")
+                Text(modelData.address)
                     .font(.custom("NotoSansJP-Regular", size: 14.0))
                     .foregroundStyle(Color(UIColor.init(hexString: "333333")))
                     .opacity(0.5)

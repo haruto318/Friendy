@@ -48,6 +48,7 @@
 		64B65E2F2B8B165F00C60D24 /* NavigateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E2E2B8B165F00C60D24 /* NavigateButton.swift */; };
 		64B65E312B8B1D6F00C60D24 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E302B8B1D6F00C60D24 /* CustomTextField.swift */; };
 		64B65E332B8B74B100C60D24 /* ViewStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E322B8B74B100C60D24 /* ViewStatusModel.swift */; };
+		64B65E372B8C2D7400C60D24 /* DBEditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65E362B8C2D7400C60D24 /* DBEditProfileModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		64B65E2E2B8B165F00C60D24 /* NavigateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateButton.swift; sourceTree = "<group>"; };
 		64B65E302B8B1D6F00C60D24 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		64B65E322B8B74B100C60D24 /* ViewStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStatusModel.swift; sourceTree = "<group>"; };
+		64B65E362B8C2D7400C60D24 /* DBEditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBEditProfileModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				64B65E1D2B8B0A1A00C60D24 /* Counter.swift */,
 				64B65E1F2B8B0A7500C60D24 /* CounterView.swift */,
 				64B65E322B8B74B100C60D24 /* ViewStatusModel.swift */,
+				64B65E362B8C2D7400C60D24 /* DBEditProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				64B65DB42B872B1400C60D24 /* FriendyApp.swift in Sources */,
 				64B65E0C2B89D77100C60D24 /* FriendCard.swift in Sources */,
 				64B65E232B8B145700C60D24 /* onBoarding.swift in Sources */,
+				64B65E372B8C2D7400C60D24 /* DBEditProfileModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
