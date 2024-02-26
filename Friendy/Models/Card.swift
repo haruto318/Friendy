@@ -6,6 +6,20 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Card: Object, Identifiable{
+    @Persisted var id: UUID = UUID()
+    @Persisted var image: Data
+    @Persisted var name: String = ""
+    @Persisted var nickname: String = ""
+    @Persisted var address: String = ""
+    @Persisted var twitter: String = ""
+    @Persisted var instagram: String = ""
+    @Persisted var github: String = ""
+    @Persisted var blog: String = ""
+    @Persisted var like: Bool = false
+}
 
 struct CardData: Identifiable, Hashable {
     var id = UUID()
