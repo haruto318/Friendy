@@ -12,8 +12,10 @@
 //class Counter: Object, ObjectKeyIdentifiable {
 ////    @Persisted(primaryKey: true) var id: ObjectId
 //    @Persisted var exchangedDate: Date
-//    @Persisted var card: Card
+//    @Persisted var card: Card?
 //    @Persisted var comment: String
+//    @Persisted var like: Bool
+//    @Persisted var count: Int = 0
 //}
 //
 //class Card: Object {
@@ -26,7 +28,6 @@
 //    @Persisted var instagram: String
 //    @Persisted var github: String
 //    @Persisted var blog: String
-//    @Persisted var like: Bool
 //}
 //
 //
@@ -34,6 +35,7 @@
 //class RealmManager: ObservableObject {
 //    private(set) var localRealm: Realm?
 //    @Published var counters: [Counter] = []
+//    @Published var userCard: Counter = Counter()
 //    // initはRealmManagerが生成されたときに呼ばれる
 //    init() {
 //        // Realmを開くメソッドを実行
@@ -52,7 +54,7 @@
 //        }
 //    }
 //    // カウンターを追加するメソッド
-//    func addCounter(count: Int) {
+//    func addCounter(like: Bool) {
 //        // if letでlocalRealmがnilでないことを確認
 //        if let localRealm = localRealm {
 //            // do-catchでエラー処理
@@ -60,7 +62,7 @@
 //                // Realmに書き込み
 //                try localRealm.write {
 //                    let newCounter = Counter()
-//                    newCounter. = count
+//                    newCounter.like = false
 //                    localRealm.add(newCounter)
 //                    getCounters()
 //                }
@@ -69,6 +71,41 @@
 //            }
 //        }
 //    }
+//    
+//    // カウンターを追加するメソッド
+//    func addUserCard(like: Bool) {
+//        // if letでlocalRealmがnilでないことを確認
+//        if let localRealm = localRealm {
+//            // do-catchでエラー処理
+//            do {
+//                // Realmに書き込み
+//                try localRealm.write {
+//                    let newCard = Counter()
+//                    newCard.count += 1
+//                    localRealm.add(newCard)
+//                    getCounters()
+//                }
+//            } catch {
+//                print("Error adding counter to Realm: \(error)")
+//            }
+//        }
+//    }
+//    
+//    // カウンターの情報を取得するメソッド
+//    func getUserCard() {
+//        // if letでlocalRealmがnilでないことを確認
+//        if let localRealm = localRealm {
+//            // Realmから全てのカウンターを取得
+//            let allCounters = localRealm.objects(Counter.self)
+//            // countersに全てのカウンターを代入
+//            counters = []
+//            // forEachでallCountersの要素をcounterに代入。配列なので、appendでcountersに追加
+//            allCounters.forEach { counter in
+//                counters.append(counter)
+//            }
+//        }
+//    }
+//    
 //    // カウンターの情報を取得するメソッド
 //    func getCounters() {
 //        // if letでlocalRealmがnilでないことを確認
@@ -84,20 +121,13 @@
 //        }
 //    }
 //    // カウンターをリセットするメソッド
-//    func resetCounter(id: ObjectId) {
-//        // if letでlocalRealmがnilでないことを確認
+//    func resetCounter(id: UUID) {
 //        if let localRealm = localRealm {
-//            // do-catchでエラー処理
 //            do {
-//                // idが一致するカウンターを取得
-//                let counterToReset = localRealm.objects(Counter.self).filter(NSPredicate(format: "id == %@", id))
-//                // guardでcounterToResetが空でないことを確認
-//                guard !counterToReset.isEmpty else { return }
-//                // Realmに書き込み
-//                try localRealm.write {
-//                    // countを0にする
-//                    counterToReset[0].count = 0
-//                    getCounters()
+//                if let counterToReset = localRealm.object(ofType: Counter.self, forPrimaryKey: id) {
+//                    try localRealm.write {
+//                        counterToReset.count = 0 // Reset the count to 0
+//                    }
 //                }
 //            } catch {
 //                print("Error resetting counter \(id) to Realm: \(error)")
