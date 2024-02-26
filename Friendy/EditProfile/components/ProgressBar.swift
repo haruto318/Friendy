@@ -10,6 +10,7 @@ import SwiftUI
 struct ProgressBar: View {
     @Binding var progressVal: Double
     @EnvironmentObject var viewStatus: ViewStatusModel
+    @EnvironmentObject var modelData: DBEditProfileModel
     var selection: Int
     var body: some View {
         VStack(alignment: .leading){ ///画面上部のバー
@@ -18,6 +19,7 @@ struct ProgressBar: View {
                 Spacer()
                 if selection == 3 {
                     Button(action: {
+                        modelData.addData()
                         viewStatus.isShowEditView = false /// onBoardingを閉じる（データを更新するコードも書くこと）
                     }, label: {
                         Text("保存").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
@@ -28,7 +30,9 @@ struct ProgressBar: View {
                 .animation(.easeInOut, value: progressVal)//バーのアニメーション
                 .tint(Color(UIColor(hexString: "333333")))//バーの色
                 .scaleEffect(x: 1, y: 0.5)//バーの高さ
-        }
+        }.onAppear(perform: {
+            print(modelData.card)
+        })
     }
 }
 

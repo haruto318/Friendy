@@ -43,7 +43,7 @@ struct ColorList: View {
                             }.padding()
                         )
                     
-                    DescriptionView(Card: currentCard, isDetailView: false).zIndex(0)
+//                    DescriptionView(Card: currentCard, isDetailView: false).zIndex(0)
                 }
             }
             .edgesIgnoringSafeArea(.all)        }

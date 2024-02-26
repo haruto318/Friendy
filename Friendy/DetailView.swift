@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var Card: CardData
+    @EnvironmentObject var modelData: DBEditProfileModel
+    var Card: Card
     var isDetailView: Bool
     
     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -21,33 +22,34 @@ struct DetailView: View {
         ZStack {
             Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
             ScrollView  {
-                Image(Card.image)
-                    .resizable()
-                    .aspectRatio(1,contentMode: .fit)
-                    .edgesIgnoringSafeArea(.bottom)
-                    .cornerRadius(28, corners: [.bottomLeft, .bottomRight])
-                    .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 0)
-                    .zIndex(1)
-//                    .matchedGeometryEffect(id: "image\(Card.id)", in: namespace)
-                    .overlay(
-                        VStack{
-                            HStack{
-                                Spacer()
-                                Button(action: {
-                                    withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-//                                        show.toggle()
-//                                        self.dismiss()
-                                        presentationMode.wrappedValue.dismiss()
+                if let uiImage = UIImage(data: modelData.image) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(1,contentMode: .fit)
+                        .edgesIgnoringSafeArea(.bottom)
+                        .cornerRadius(28, corners: [.bottomLeft, .bottomRight])
+                        .shadow(color: Color.black.opacity(0.3), radius: 30, x: 0, y: 0)
+                        .zIndex(1)
+                        .overlay(
+                            VStack{
+                                HStack{
+                                    Spacer()
+                                    Button(action: {
+                                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+    //                                        show.toggle()
+    //                                        self.dismiss()
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                    }){
+                                        Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding()
                                     }
-                                }){
-                                    Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding()
                                 }
-                            }
-                            Spacer()
-                        }.padding()
-                    )
+                                Spacer()
+                            }.padding()
+                        )
+                }
                 
-                DescriptionView(Card: Card, isDetailView: isDetailView).zIndex(0).padding(.bottom,edge!.bottom + 70)
+                DescriptionView(Card: modelData.card, isDetailView: isDetailView).zIndex(0).padding(.bottom,edge!.bottom + 70)
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -58,7 +60,7 @@ struct DetailView: View {
 
 
 struct DescriptionView: View {
-    var Card: CardData
+    var Card: Card
     var isDetailView: Bool
     @EnvironmentObject var viewStatus: ViewStatusModel
     
@@ -195,6 +197,6 @@ struct BackButton: View {
 }
 
 
-#Preview {
-    DetailView(Card: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames", like: true), isDetailView: true)
-}
+//#Preview {
+//    DetailView(Card: CardData(image: "sample5" ,name: "はまの はると", nickname: "けまり", address: "haruto.yhs318@gmail.com", twitter: "https://twitter.com/ApplivGames", instagram: "https://twitter.com/ApplivGames", github: "https://twitter.com/ApplivGames", blog: "https://twitter.com/ApplivGames", like: true), isDetailView: true)
+//}

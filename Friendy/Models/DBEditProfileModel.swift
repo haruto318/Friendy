@@ -27,40 +27,91 @@ class DBEditProfileModel: ObservableObject{
     }
     
     func fetchData() {
-        guard let dbRef = try? Realm() else { return }
-        
-        let result = dbRef.objects(Card.self)
-        
-        print(result)
-        
-        if let result = dbRef.objects(Card.self).last {
+        let realm = try! Realm()
+
+        if let result = realm.objects(Card.self).last {
+            print(result)
             self.card = result
+            image = card.image
             name = card.name
             nickname = card.nickname
-            print(card)
+            address = card.address
+            twitter = card.twitter
+            instagram = card.instagram
+            github = card.github
+            blog = card.blog
         }
+        
+        
+//        guard let dbRef = try? Realm() else { return }
+//        
+//        let result = dbRef.objects(Card.self)
+//        
+////        print(result)
+//        
+//        if let result = dbRef.objects(Card.self).last {
+//            print(result)
+//            self.card = result
+//            image = card.image
+//            name = card.name
+//            nickname = card.nickname
+//            address = card.address
+//            twitter = card.twitter
+//            instagram = card.instagram
+//            github = card.github
+//            blog = card.blog
+//            print(card)
+//        }
     }
     
-    func addData(){
-//        if name == "" || nickname == "" || address == "" || address == "" { return }
-        
-        let card = Card()
+//    func addData(){
+////        if name == "" || nickname == "" || address == "" || address == "" { return }
+//        
+//        let card = Card()
 //        card.image = image
-        card.name = name
-        card.nickname = nickname
+//        card.name = name
+//        card.nickname = nickname
 //        card.address = address
 //        card.twitter = twitter
 //        card.instagram = instagram
 //        card.github = github
 //        card.blog = blog
-        
-        guard let dbRef = try? Realm() else { return }
-        
-        try? dbRef.write{
-            dbRef.add(card)
+//        
+//        print(card)
+//        
+//        guard let dbRef = try? Realm() else { return }
+//        
+//        try? dbRef.write{
+//            dbRef.add(card)
+//            
+//            fetchData()
+//        }
+//        
+//    }
+    
+    func addData() {
+            guard name != "", nickname != "", address != "" else { return }
             
-            fetchData()
+            let card = Card()
+            card.image = image
+            card.name = name
+            card.nickname = nickname
+            card.address = address
+            card.twitter = twitter
+            card.instagram = instagram
+            card.github = github
+            card.blog = blog
+            
+            print(card)
+            
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    realm.add(card)
+                    fetchData()
+                }
+            } catch {
+                print("Error saving data to Realm: \(error)")
+            }
         }
-        
-    }
 }

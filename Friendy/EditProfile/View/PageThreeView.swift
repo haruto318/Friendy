@@ -23,17 +23,17 @@ struct PageThreeView: View {
                 Spacer()
                 
                 VStack(spacing: 10){
-                    if let uiImage = UIImage(data: modelData.image) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width:200, height: 200)
-                            .cornerRadius(30)
-                    } else {
-                        RoundedRectangle(cornerRadius: 30)
-                            .fill(Color(UIColor(hexString: "D9D9D9")))
-                            .frame(width:200, height: 200)
-                    }
+//                    if let uiImage = UIImage(data: modelData.image) {
+//                        Image(uiImage: uiImage)
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width:200, height: 200)
+//                            .cornerRadius(30)
+//                    } else {
+//                        RoundedRectangle(cornerRadius: 30)
+//                            .fill(Color(UIColor(hexString: "D9D9D9")))
+//                            .frame(width:200, height: 200)
+//                    }
                 }.padding(.horizontal)
                 Spacer()
                 
