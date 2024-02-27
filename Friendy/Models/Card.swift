@@ -21,6 +21,13 @@ class Card: Object, Identifiable{
     @Persisted var like: Bool = false
 }
 
+//class CardList: Object, Identifiable{
+//    @Persisted var id: UUID = UUID()
+//    @Persisted var card: Card
+//    @Persisted var like: Bool = false
+//}
+
+
 struct CardData: Identifiable, Hashable {
     var id = UUID()
     let image: String

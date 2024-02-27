@@ -28,9 +28,9 @@ class DBEditProfileModel: ObservableObject{
     
     func fetchData() {
         let realm = try! Realm()
-
+        
         if let result = realm.objects(Card.self).last {
-            print(result)
+            print("result: \(result)")
             self.card = result
             image = card.image
             name = card.name
@@ -41,77 +41,29 @@ class DBEditProfileModel: ObservableObject{
             github = card.github
             blog = card.blog
         }
-        
-        
-//        guard let dbRef = try? Realm() else { return }
-//        
-//        let result = dbRef.objects(Card.self)
-//        
-////        print(result)
-//        
-//        if let result = dbRef.objects(Card.self).last {
-//            print(result)
-//            self.card = result
-//            image = card.image
-//            name = card.name
-//            nickname = card.nickname
-//            address = card.address
-//            twitter = card.twitter
-//            instagram = card.instagram
-//            github = card.github
-//            blog = card.blog
-//            print(card)
-//        }
     }
-    
-//    func addData(){
-////        if name == "" || nickname == "" || address == "" || address == "" { return }
-//        
-//        let card = Card()
-//        card.image = image
-//        card.name = name
-//        card.nickname = nickname
-//        card.address = address
-//        card.twitter = twitter
-//        card.instagram = instagram
-//        card.github = github
-//        card.blog = blog
-//        
-//        print(card)
-//        
-//        guard let dbRef = try? Realm() else { return }
-//        
-//        try? dbRef.write{
-//            dbRef.add(card)
-//            
-//            fetchData()
-//        }
-//        
-//    }
+        
     
     func addData() {
-            guard name != "", nickname != "", address != "" else { return }
+        guard name != "", nickname != "", address != "", image != nil else { return }
             
-            let card = Card()
-            card.image = image
-            card.name = name
-            card.nickname = nickname
-            card.address = address
-            card.twitter = twitter
-            card.instagram = instagram
-            card.github = github
-            card.blog = blog
-            
-            print(card)
-            
-            do {
-                let realm = try Realm()
-                try realm.write {
-                    realm.add(card)
-                    fetchData()
-                }
-            } catch {
-                print("Error saving data to Realm: \(error)")
+        do {
+            let realm = try Realm()
+            let userCard = realm.objects(Card.self).last!
+            try realm.write {
+                userCard.image = image
+                userCard.name = name
+                userCard.nickname = nickname
+                userCard.address = address
+                userCard.twitter = twitter
+                userCard.instagram = instagram
+                userCard.github = github
+                userCard.blog = blog
+
+                fetchData()
             }
+        } catch {
+            print("Error saving data to Realm: \(error)")
         }
+    }
 }
