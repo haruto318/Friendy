@@ -21,11 +21,19 @@ class Card: Object, Identifiable{
     @Persisted var like: Bool = false
 }
 
-//class CardList: Object, Identifiable{
-//    @Persisted var id: UUID = UUID()
-//    @Persisted var card: Card
-//    @Persisted var like: Bool = false
-//}
+class Friend: Object, Identifiable{
+    @Persisted var id: UUID = UUID()
+    @Persisted var image: Data
+    @Persisted var name: String = ""
+    @Persisted var nickname: String = ""
+    @Persisted var address: String = ""
+    @Persisted var twitter: String = ""
+    @Persisted var instagram: String = ""
+    @Persisted var github: String = ""
+    @Persisted var blog: String = ""
+    @Persisted var like: Bool = false
+}
+
 
 
 struct CardData: Identifiable, Hashable {
