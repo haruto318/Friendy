@@ -1,4 +1,13 @@
 //
+//  ProfileView.swift
+//  Friendy
+//
+//  Created by 濱野遥斗 on 2024/02/27.
+//
+
+import SwiftUI
+
+//
 //  DetailView.swift
 //  Friendy
 //
@@ -7,10 +16,10 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var modelData: DBEditProfileModel
-    var Card: CardData
+    var Card: Card
     var isDetailView: Bool
     
     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -47,18 +56,17 @@ struct DetailView: View {
                         )
                 }
                 
-                DescriptionView(Card: Card, isDetailView: isDetailView).zIndex(0).padding(.bottom,edge!.bottom + 70)
+                ProfileDescriptionView(Card: modelData.card, isDetailView: isDetailView).zIndex(0).padding(.bottom,edge!.bottom + 70)
             }
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
-//        .navigationBarItems(leading: BackButton(action: {presentationMode.wrappedValue.dismiss()}), trailing: Image(systemName: "chevron.backward"))
     }
 }
 
 
-struct DescriptionView: View {
-    var Card: CardData
+struct ProfileDescriptionView: View {
+    var Card: Card
     var isDetailView: Bool
     @EnvironmentObject var viewStatus: ViewStatusModel
     
@@ -163,36 +171,36 @@ struct DescriptionView: View {
     }
 }
 
-//struct RoundedCorner: Shape {
-//
-//    var radius: CGFloat = .infinity
-//    var corners: UIRectCorner = .allCorners
-//
-//    func path(in rect: CGRect) -> Path {
-//        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//        return Path(path.cgPath)
-//    }
-//}
-//
-//extension View {
-//    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-//        clipShape( RoundedCorner(radius: radius, corners: corners) )
-//    }
-//}
-//
-//
-//struct BackButton: View {
-//    let action: () -> Void
-//    var body: some View {
-//        Button(action: action) {
-//            Image(systemName: "chevron.backward")
-//                .foregroundColor(.black)
-//                .padding(.all, 12)
-//                .background(Color.white)
-//                .cornerRadius(8.0)
-//        }
-//    }
-//}
+struct RoundedCorner: Shape {
+
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+
+struct BackButton: View {
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: "chevron.backward")
+                .foregroundColor(.black)
+                .padding(.all, 12)
+                .background(Color.white)
+                .cornerRadius(8.0)
+        }
+    }
+}
 
 
 //#Preview {

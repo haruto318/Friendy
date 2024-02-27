@@ -40,10 +40,10 @@ struct ColorList: View {
                                     }
                                 }
                                 Spacer()
-                            }.padding()
+                            }.padding().padding(.vertical)
                         )
                     
-//                    DescriptionView(Card: currentCard, isDetailView: false).zIndex(0)
+                    DescriptionView(Card: currentCard, isDetailView: false).zIndex(0)
                 }
             }
             .edgesIgnoringSafeArea(.all)        }

@@ -22,13 +22,15 @@ struct HeaderView: View {
             }
             Spacer()
             NavigationLink(destination: {
-                DetailView(Card: modelData.card, isDetailView: true)
+                ProfileView(Card: modelData.card, isDetailView: true)
             }){
-                Image(decorative: HeaderCard.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle())
+                if let uiImage = UIImage(data: modelData.image) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                }
             }
         }.padding().padding(.horizontal)
     }

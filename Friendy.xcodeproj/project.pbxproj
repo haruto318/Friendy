@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		644737B02B8D76CC00C6BA59 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644737AF2B8D76CC00C6BA59 /* ProfileView.swift */; };
 		64B65DB42B872B1400C60D24 /* FriendyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65DB32B872B1400C60D24 /* FriendyApp.swift */; };
 		64B65DB62B872B1400C60D24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B65DB52B872B1400C60D24 /* ContentView.swift */; };
 		64B65DB82B872B1400C60D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B65DB72B872B1400C60D24 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		644737AF2B8D76CC00C6BA59 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		64B65DB02B872B1400C60D24 /* Friendy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B65DB32B872B1400C60D24 /* FriendyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendyApp.swift; sourceTree = "<group>"; };
 		64B65DB52B872B1400C60D24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				64B65DE72B8749EE00C60D24 /* Noto_Sans_JP  */,
 				64B65DB32B872B1400C60D24 /* FriendyApp.swift */,
 				64B65E022B87A30E00C60D24 /* DetailView.swift */,
+				644737AF2B8D76CC00C6BA59 /* ProfileView.swift */,
 				64B65DB52B872B1400C60D24 /* ContentView.swift */,
 				64B65E212B8B137E00C60D24 /* EditProfile */,
 				64B65E072B89D6CF00C60D24 /* Models */,
@@ -501,6 +504,7 @@
 				64B65E162B8A052F00C60D24 /* DatePickerView.swift in Sources */,
 				64B65DE42B873BB400C60D24 /* ColorList.swift in Sources */,
 				64B65E312B8B1D6F00C60D24 /* CustomTextField.swift in Sources */,
+				644737B02B8D76CC00C6BA59 /* ProfileView.swift in Sources */,
 				64B65E142B89E9C200C60D24 /* HeaderView.swift in Sources */,
 				64B65E062B89953B00C60D24 /* FriendListView.swift in Sources */,
 				64B65E2A2B8B151A00C60D24 /* PageThreeView.swift in Sources */,

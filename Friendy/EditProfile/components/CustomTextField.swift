@@ -13,7 +13,6 @@ struct CustomTextField: View {
     var body: some View {
         TextField(category, text: $inputInfo)
             .padding()
-//            .padding(.horizontal)
             .foregroundColor(Color(UIColor(hexString: "333333")))
             .font(.custom("NotoSansJP-Regular", size: 14))
             .background(
