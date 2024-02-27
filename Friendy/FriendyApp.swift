@@ -10,9 +10,10 @@ import SwiftUI
 @main
 struct FriendyApp: App {
     @StateObject var modelData = DBEditProfileModel()
+    @StateObject var friendModel = DBFriendListModel()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(modelData)
+            ContentView().environmentObject(modelData).environmentObject(friendModel)
         }
     }
 }

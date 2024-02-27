@@ -30,6 +30,8 @@ struct HeaderView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
+                } else {
+                    Circle().frame(width: 50, height: 50).background(.gray)
                 }
             }
         }.padding().padding(.horizontal)

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ColorList: View {
     
-    var cards: [CardData]
+    var cards: [Friend]
     
     @State private var isTapped = false
     
@@ -10,7 +10,7 @@ struct ColorList: View {
     @State var totalNumberOfTaps = 0
     
     @Binding var show: Bool
-    @Binding var currentCard: CardData
+    @Binding var currentCard: Friend
     @Namespace var namespace
     
     var body: some View {
@@ -18,30 +18,32 @@ struct ColorList: View {
             ZStack {
                 Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
                 ScrollView  {
-                    Image(currentCard.image)
-                        .resizable()
-                        .aspectRatio(1,contentMode: .fit)
-                        .edgesIgnoringSafeArea(.bottom)
-                        .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
-                        .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
-                        .zIndex(1)
-                        .matchedGeometryEffect(id: "image\(currentCard.id)", in: namespace)
-                        .animation(.easeInOut, value: show)
-                        .overlay(
-                            VStack{
-                                HStack{
-                                    Spacer()
-                                    Button(action: {
-                                        withAnimation(.easeIn(duration: 0.5)){
-                                            show.toggle()
+                    if let uiImage = UIImage(data: currentCard.image) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(1,contentMode: .fit)
+                            .edgesIgnoringSafeArea(.bottom)
+                            .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+                            .zIndex(1)
+                            .matchedGeometryEffect(id: "image\(currentCard.id)", in: namespace)
+                            .animation(.easeInOut, value: show)
+                            .overlay(
+                                VStack{
+                                    HStack{
+                                        Spacer()
+                                        Button(action: {
+                                            withAnimation(.easeIn(duration: 0.5)){
+                                                show.toggle()
+                                            }
+                                        }){
+                                            Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding(.horizontal)
                                         }
-                                    }){
-                                        Image(systemName: "xmark.circle.fill").foregroundStyle(.white.opacity(0.8)).font(.system(size: 25)).padding(.horizontal)
                                     }
-                                }
-                                Spacer()
-                            }.padding().padding(.vertical)
-                        )
+                                    Spacer()
+                                }.padding().padding(.vertical)
+                            )
+                    }
                     
                     DescriptionView(Card: currentCard, isDetailView: false).zIndex(0)
                 }
@@ -54,22 +56,24 @@ struct ColorList: View {
                     HStack(spacing: 300) {
                         ForEach(cards, id: \.self) { card in
                             GeometryReader { geometry in
-                                Image(decorative: card.image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 300, height: 300, alignment: .center)
-                                    .cornerRadius(16)
-                                    .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
-                                    .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
-                                    .scaleEffect(self.isDetectingLongPress ? 0.97 : 1.0)
-                                    .matchedGeometryEffect(id: "image\(card.id)", in: namespace)
-                                    .onTapGesture {
-                                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
-                                            show.toggle()
-                                            currentCard = card
-                                            print(card.image)
+                                if let uiImage = UIImage(data: card.image) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 300, height: 300, alignment: .center)
+                                        .cornerRadius(16)
+                                        .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
+                                        .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
+                                        .scaleEffect(self.isDetectingLongPress ? 0.97 : 1.0)
+                                        .matchedGeometryEffect(id: "image\(card.id)", in: namespace)
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
+                                                show.toggle()
+                                                currentCard = card
+                                                print(card.image)
+                                            }
                                         }
-                                    }
+                                }
                             }
                         }
                         GeometryReader { geometry in ///透明画像

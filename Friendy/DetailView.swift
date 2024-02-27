@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var modelData: DBEditProfileModel
-    var Card: CardData
+    var Card: Friend
     var isDetailView: Bool
     
     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -58,7 +58,7 @@ struct DetailView: View {
 
 
 struct DescriptionView: View {
-    var Card: CardData
+    var Card: Friend
     var isDetailView: Bool
     @EnvironmentObject var viewStatus: ViewStatusModel
     
