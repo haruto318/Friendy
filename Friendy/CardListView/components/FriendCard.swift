@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct FriendCard: View {
-    var card: CardData
+    var card: Friend
     var body: some View {
         VStack(spacing: 10) {
-            Image(decorative: card.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 140, height: 140)
-                .clipShape(Rectangle())
-                .cornerRadius(15.0)
-                .padding(.top, 10)
+            if let uiImage = UIImage(data: card.image) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 140, height: 140)
+                    .clipShape(Rectangle())
+                    .cornerRadius(15.0)
+                    .padding(.top, 10)
+            }
 
             
             HStack(alignment: .bottom){
@@ -49,6 +51,6 @@ struct FriendCard: View {
     }
 }
 
-#Preview {
-    FriendCard(card: CardArray[0])
-}
+//#Preview {
+//    FriendCard(card: CardArray[0])
+//}

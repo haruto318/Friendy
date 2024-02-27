@@ -65,7 +65,7 @@ struct ColorList: View {
                                         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
                                         .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 50) / -20), axis: (x: 0, y: 1.0, z: 0))
                                         .scaleEffect(self.isDetectingLongPress ? 0.97 : 1.0)
-                                        .matchedGeometryEffect(id: "image\(card.id)", in: namespace)
+//                                        .matchedGeometryEffect(id: "image\(card.id)", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.6, dampingFraction: 0.8)){
                                                 show.toggle()

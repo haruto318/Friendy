@@ -51,14 +51,16 @@ class DBEditProfileModel: ObservableObject{
     func addData() {
 //        guard name != "", nickname != "", address != "", image != nil else { return }
         
-        let quality = 0.3 // 圧縮率（0.0から1.0の間の値、1.0が最高品質）
-
+        let quality = 0.25 // 圧縮率（0.0から1.0の間の値、1.0が最高品質）
+        
         guard let uiImage = UIImage(data: image) else {
             print("Error converting Data to UIImage")
             return
         }
+        
+        var resizedPicture: UIImage = uiImage.resize(targetSize: CGSize(width: uiImage.size.width / 8, height: uiImage.size.height / 8))
             
-        guard let jpegData = uiImage.jpegData(compressionQuality: quality) else {
+        guard let jpegData = resizedPicture.jpegData(compressionQuality: quality) else {
             print("Error converting UIImage to JPEG Data")
             return
         }

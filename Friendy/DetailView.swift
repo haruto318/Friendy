@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var modelData: DBEditProfileModel
+//    @EnvironmentObject var modelData: DBEditProfileModel
     var Card: Friend
     var isDetailView: Bool
     
@@ -22,7 +22,7 @@ struct DetailView: View {
         ZStack {
             Color(UIColor.init(hexString: "F4F4F4")).ignoresSafeArea()
             ScrollView  {
-                if let uiImage = UIImage(data: modelData.image) {
+                if let uiImage = UIImage(data: Card.image) {
                     Image(uiImage: uiImage)
                         .resizable()
                         .aspectRatio(1,contentMode: .fit)

@@ -9,6 +9,16 @@ import Foundation
 import RealmSwift
 import SwiftUI
 
+extension UIImage {
+
+    func resize(targetSize: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size:targetSize).image { _ in
+            self.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
+    }
+
+}
+
 class DBFriendListModel: ObservableObject{
     @Published var image: Data = Data()
     @Published var name: String = ""
@@ -45,8 +55,10 @@ class DBFriendListModel: ObservableObject{
 //        guard name != "", nickname != "", address != "", image != nil else { return }
         
         let image = UIImage(named: "sample1")
-        let quality = 0.5 // 圧縮率（0.0から1.0の間の値、1.0が最高品質）
-        let jpegData = image!.jpegData(compressionQuality: quality)
+        var resizedPicture: UIImage = image!.resize(targetSize: CGSize(width: image!.size.width / 8, height: image!.size.height / 8))
+
+        let quality = 0.25 // 圧縮率（0.0から1.0の間の値、1.0が最高品質）
+        let jpegData = resizedPicture.jpegData(compressionQuality: quality)
             
         do {
             let realm = try Realm()

@@ -11,6 +11,8 @@ struct FriendListView: View {
     var columns = [GridItem(.adaptive(minimum: 150), spacing: 5)]
     
     @State var selectedDate: Date = Date()
+    
+    @EnvironmentObject var friendModel: DBFriendListModel
 
     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
     
@@ -27,11 +29,11 @@ struct FriendListView: View {
                         .padding()
                     
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(CardArray, id: \.id) { card in
-//                            NavigationLink(destination: DetailView(Card: card, isDetailView: false)
-//                            ) {
-//                                FriendCard(card: card)
-//                            }
+                        ForEach(friendModel.friends, id: \.id) { card in
+                            NavigationLink(destination: DetailView(Card: card, isDetailView: false)
+                            ) {
+                                FriendCard(card: card)
+                            }
                         }
                     }
                     .padding()
