@@ -46,5 +46,5 @@ struct PageTwoView: View {
 }
 
 #Preview {
-    PageTwoView()
+    PageTwoView().environmentObject(DBFriendListModel()).environmentObject(DBEditProfileModel())
 }

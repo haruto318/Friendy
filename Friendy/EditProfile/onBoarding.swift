@@ -20,17 +20,19 @@ struct OnBoarding: View {
     
     @State var selection = 1
     
+    @Binding var page: Int
+    
     var body: some View {
 //        NavigationView{
             VStack(spacing: 10){
-                ProgressBar(progressVal: $progressVal, selection: selection)
+                ProgressBar(progressVal: $progressVal, selection: selection, page: $page)
                 
                 Spacer()
                 
                 ScrollView(showsIndicators: false){
                     VStack{
                         if selection == 1 {
-                            PageOneView(inputName: $inputName, inputDestination: $inputDestination)
+                            PageOneView()
                         } else if selection == 2 {
                             PageTwoView()
                             
@@ -54,6 +56,6 @@ struct OnBoarding: View {
 
 struct OnBoarding_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoarding()
+        OnBoarding(page: .constant(1)).environmentObject(DBFriendListModel()).environmentObject(DBEditProfileModel())
     }
 }

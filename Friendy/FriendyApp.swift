@@ -13,7 +13,7 @@ struct FriendyApp: App {
     @StateObject var friendModel = DBFriendListModel()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(modelData).environmentObject(friendModel)
+            ContentView().environmentObject(modelData).environmentObject(friendModel).environmentObject(ViewStatusModel())
         }
     }
 }

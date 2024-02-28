@@ -9,8 +9,6 @@ import SwiftUI
 
 
 struct PageOneView: View {
-    @Binding var inputName: String
-    @Binding var inputDestination: String
     
     @EnvironmentObject var modelData: DBEditProfileModel
     
@@ -48,6 +46,6 @@ struct PageOneView: View {
 struct PageOneView_Previews: PreviewProvider {
     static var previews: some View {
 //        OnBoarding()
-        PageOneView(inputName: .constant("京都旅行"), inputDestination:.constant("清水寺"))
+        PageOneView().environmentObject(DBFriendListModel()).environmentObject(DBEditProfileModel())
     }
 }

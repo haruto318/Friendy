@@ -23,7 +23,7 @@ struct NavigateButton: View {
                 selection -= 1
             } label: {
                 Image(systemName: "arrowtriangle.backward.fill")
-                    .foregroundColor(Color(UIColor(hexString: "F8714F")))
+                    .foregroundColor(Color(UIColor(hexString: "D9D9D9")))
                     .font(.system(size: 50))
                 
             }
@@ -35,7 +35,7 @@ struct NavigateButton: View {
                 ForEach(0..<3, id: \.self) { index in
                     
                     Circle()
-                        .fill(Color(UIColor(hexString: index == selection-1 ? "F8714F" : "D9D9D9")))
+                        .fill(Color(UIColor(hexString: index == selection-1 ? "9C9C9C" : "D9D9D9")))
                         .frame(width: 12, height: 12)
                         .scaleEffect(index == selection-1 ? 1.2 : 1)
                         .animation(.easeInOut, value: selection)
@@ -50,7 +50,7 @@ struct NavigateButton: View {
                 selection += 1
             } label: {
                 Image(systemName: "arrowtriangle.forward.fill")
-                    .foregroundColor(Color(UIColor(hexString: "F8714F")))
+                    .foregroundColor(Color(UIColor(hexString: "D9D9D9")))
                     .font(.system(size: 50))
                 
             }

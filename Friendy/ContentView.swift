@@ -43,8 +43,22 @@ struct ContentView: View {
         UITabBar.appearance().isHidden = true
     }
     
+    @AppStorage("is_init") var isInit = true    // 初回画面フラグ
+    @State var page: Int = 1                    // ページ番号
+    
     var body: some View {
-        TabBar().environmentObject(ViewStatusModel())
+        if isInit {
+            switch page {
+                case 1:
+                    IntroView(page: $page)
+                case 2:
+                    OnBoarding(page: $page)
+                default:
+                    TabBar()
+            }
+        } else {
+            TabBar()
+        }
     }
 }
 

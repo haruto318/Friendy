@@ -39,7 +39,7 @@ struct TabBar: View{
             .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 0)
             
         }.fullScreenCover(isPresented: $viewStatus.isShowEditView) {
-            OnBoarding()
+            OnBoarding(page: .constant(1))
         }
     }
 }

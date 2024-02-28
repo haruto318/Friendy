@@ -31,7 +31,7 @@ struct HeaderView: View {
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
                 } else {
-                    Circle().frame(width: 50, height: 50).background(.gray)
+                    Circle().frame(width: 50, height: 50).foregroundColor(.gray)
                 }
             }
         }.padding().padding(.horizontal)
