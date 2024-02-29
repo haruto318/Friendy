@@ -12,7 +12,7 @@ struct HeaderView: View {
     var body: some View {
         HStack{
             VStack(alignment: .leading, spacing: 5){
-                Text(modelData.name)
+                Text(modelData.nickname)
                     .font(.custom("NotoSansJP-Medium", size: 24.0))
                     .foregroundStyle(Color(UIColor.init(hexString: "333333")))
                 Text(modelData.address)

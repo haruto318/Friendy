@@ -52,25 +52,13 @@ class DBEditProfileModel: ObservableObject{
 //        guard name != "", nickname != "", address != "", image != nil else { return }
         
         let quality = 0.25 // 圧縮率（0.0から1.0の間の値、1.0が最高品質）
-        
-        guard let uiImage = UIImage(data: image) else {
-            print("Error converting Data to UIImage")
-            return
-        }
-        
-        var resizedPicture: UIImage = uiImage.resize(targetSize: CGSize(width: uiImage.size.width / 8, height: uiImage.size.height / 8))
-            
-        guard let jpegData = resizedPicture.jpegData(compressionQuality: quality) else {
-            print("Error converting UIImage to JPEG Data")
-            return
-        }
-            
+
         do {
             let realm = try Realm()
             if let userCard = realm.objects(Card.self).first {
                 print("userCard: \(userCard)")
                 try realm.write {
-                    userCard.image = jpegData
+                    userCard.image = image
                     userCard.name = name
                     userCard.nickname = nickname
                     userCard.address = address
@@ -81,6 +69,17 @@ class DBEditProfileModel: ObservableObject{
                     print("card updated")
                 }
             } else {
+                guard let uiImage = UIImage(data: image) else {
+                    print("Error converting Data to UIImage")
+                    return
+                }
+                
+                var resizedPicture: UIImage = uiImage.resize(targetSize: CGSize(width: uiImage.size.width / 8, height: uiImage.size.height / 8))
+                    
+                guard let jpegData = resizedPicture.jpegData(compressionQuality: quality) else {
+                    print("Error converting UIImage to JPEG Data")
+                    return
+                }
                 let newCard = Card()
                 newCard.image = jpegData
                 newCard.name = name

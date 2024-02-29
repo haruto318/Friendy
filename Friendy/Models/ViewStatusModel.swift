@@ -9,4 +9,5 @@ import Foundation
 
 class ViewStatusModel: ObservableObject {
     @Published var isShowEditView: Bool = false
+    @Published var introPage: Int = 1
 }

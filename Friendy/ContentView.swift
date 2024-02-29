@@ -39,10 +39,6 @@ extension UIColor {
 struct ContentView: View {
     @State var offset: CGFloat = .zero
     
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
-    
     var body: some View {
         TabBar().environmentObject(ViewStatusModel())
     }
