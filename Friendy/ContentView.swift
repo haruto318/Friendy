@@ -38,9 +38,12 @@ extension UIColor {
 
 struct ContentView: View {
     @State var offset: CGFloat = .zero
+    /// 起動回数のUserDefaults
     
     var body: some View {
         TabBar().environmentObject(ViewStatusModel())
+
+        
     }
 }
 

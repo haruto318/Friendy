@@ -55,7 +55,7 @@ class DBFriendListModel: ObservableObject{
 //        guard name != "", nickname != "", address != "", image != nil else { return }
         
         let image = UIImage(named: "sample1")
-        var resizedPicture: UIImage = image!.resize(targetSize: CGSize(width: image!.size.width / 8, height: image!.size.height / 8))
+        let resizedPicture: UIImage = image!.resize(targetSize: CGSize(width: image!.size.width / 8, height: image!.size.height / 8))
 
         let quality = 0.25 // 圧縮率（0.0から1.0の間の値、1.0が最高品質）
         let jpegData = resizedPicture.jpegData(compressionQuality: quality)
@@ -73,6 +73,7 @@ class DBFriendListModel: ObservableObject{
                 friend.instagram = "haruto.instagram"
                 friend.github = "haruto.github"
                 friend.blog = "haruto.blog"
+                friend.like = false
                 realm.add(friend)
                 fetchData()
             }
@@ -81,27 +82,18 @@ class DBFriendListModel: ObservableObject{
         }
     }
     
-//    func addData() {
+    func updateLike(id: UUID) {
 //        guard name != "", nickname != "", address != "", image != nil else { return }
-//
-//        do {
-//            let realm = try Realm()
-//            let card = Card()
-//            try realm.write {
-////                card.id = id
-//                card.image =
-//                card.name = name
-//                card.nickname = nickname
-//                card.address = address
-//                card.twitter = twitter
-//                card.instagram = instagram
-//                card.github = github
-//                card.blog = blog
-//                realm.add(card)
-//                fetchData()
-//            }
-//        } catch {
-//            print("Error saving data to Realm: \(error)")
-//        }
-//    }
+            
+        do {
+            let realm = try Realm()
+            let friend = realm.objects(Friend.self).where({ $0.id == id }).first
+            try realm.write {
+                friend!.like = !(friend!.like)
+                fetchData()
+            }
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
+    }
 }

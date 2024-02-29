@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FriendCard: View {
+    @EnvironmentObject var friendModel: DBFriendListModel
     var card: Friend
     var body: some View {
         VStack(spacing: 10) {
@@ -36,6 +37,7 @@ struct FriendCard: View {
                 Spacer()
                 Button(action: {
 //                    card.like = !card.like
+                    friendModel.updateLike(id: card.id)
                 }){
                     Image(systemName: card.like ? "heart.fill": "heart").foregroundColor(card.like ? .red: .black)
                         .font(.system(size: 20))

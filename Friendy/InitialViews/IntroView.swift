@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IntroView: View {
-    @Binding var page: Int
+//    @Binding var page: Int
     
     var body: some View {
         VStack(){
@@ -26,7 +26,7 @@ struct IntroView: View {
                                 .stroke(Color.black, lineWidth: 1)
                         ).onTapGesture {
                             withAnimation(){
-                                page = 2
+//                                page = 2
                             }
                         }
                     Spacer()
@@ -38,6 +38,6 @@ struct IntroView: View {
     }
 }
 //
-//#Preview {
-//    IntroView()
-//}
+#Preview {
+    IntroView()
+}

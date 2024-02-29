@@ -74,7 +74,7 @@ class DBEditProfileModel: ObservableObject{
                     return
                 }
                 
-                var resizedPicture: UIImage = uiImage.resize(targetSize: CGSize(width: uiImage.size.width / 8, height: uiImage.size.height / 8))
+                let resizedPicture: UIImage = uiImage.resize(targetSize: CGSize(width: uiImage.size.width / 8, height: uiImage.size.height / 8))
                     
                 guard let jpegData = resizedPicture.jpegData(compressionQuality: quality) else {
                     print("Error converting UIImage to JPEG Data")

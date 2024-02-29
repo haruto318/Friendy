@@ -12,6 +12,7 @@ struct ProgressBar: View {
     @EnvironmentObject var viewStatus: ViewStatusModel
     @EnvironmentObject var modelData: DBEditProfileModel
     var selection: Int
+
     var body: some View {
         VStack(alignment: .leading){ ///画面上部のバー
             HStack{
