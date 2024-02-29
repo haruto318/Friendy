@@ -17,6 +17,7 @@ struct ProgressBar: View {
             HStack{
                 Text("プロフィールを編集").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
                 Spacer()
+                
                 if selection == 3 {
                     Button(action: {
                         modelData.addData()
@@ -25,6 +26,7 @@ struct ProgressBar: View {
                         Text("保存").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
                     })
                 }
+                
             }
             ProgressView(value: min(max(progressVal, 0.0), 100), total: 100)
                 .animation(.easeInOut, value: progressVal)//バーのアニメーション

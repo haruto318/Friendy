@@ -30,7 +30,7 @@ struct OnBoarding: View {
                 ScrollView(showsIndicators: false){
                     VStack{
                         if selection == 1 {
-                            PageOneView(inputName: $inputName, inputDestination: $inputDestination)
+                            PageOneView()
                         } else if selection == 2 {
                             PageTwoView()
                             

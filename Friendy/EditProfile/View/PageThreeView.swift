@@ -88,5 +88,5 @@ struct imagePicker: View {
 }
 
 #Preview {
-    PageThreeView()
+    PageThreeView().environmentObject(DBFriendListModel()).environmentObject(DBEditProfileModel())
 }
