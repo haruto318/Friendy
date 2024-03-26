@@ -39,9 +39,18 @@ extension UIColor {
 struct ContentView: View {
     @State var offset: CGFloat = .zero
     /// 起動回数のUserDefaults
+//    @AppStorage("isInit") var isInit: Bool = true
+//    @EnvironmentObject var viewStatus: ViewStatusModel
     
     var body: some View {
-        TabBar().environmentObject(ViewStatusModel())
+//        if isInit {
+//            OnBoarding().fullScreenCover(isPresented: $viewStatus.isShowHomeView) {
+//                TabBar().environmentObject(ViewStatusModel())
+//            }
+//        } else {
+            TabBar().environmentObject(ViewStatusModel())
+//        }
+        
 
         
     }

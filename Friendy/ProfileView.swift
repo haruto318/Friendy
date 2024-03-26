@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-//
-//  DetailView.swift
-//  Friendy
-//
-//  Created by 濱野遥斗 on 2024/02/23.
-//
-
-import SwiftUI
-
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var modelData: DBEditProfileModel

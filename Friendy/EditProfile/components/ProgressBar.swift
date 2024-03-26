@@ -11,6 +11,8 @@ struct ProgressBar: View {
     @Binding var progressVal: Double
     @EnvironmentObject var viewStatus: ViewStatusModel
     @EnvironmentObject var modelData: DBEditProfileModel
+    @AppStorage("isInit") var isInit: Bool = true
+//    @EnvironmentObject var viewStatus: ViewStatusModel
     var selection: Int
 
     var body: some View {
@@ -20,12 +22,22 @@ struct ProgressBar: View {
                 Spacer()
                 
                 if selection == 3 {
-                    Button(action: {
-                        modelData.addData()
-                        viewStatus.isShowEditView = false /// onBoardingを閉じる（データを更新するコードも書くこと）
-                    }, label: {
-                        Text("保存").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
-                    })
+                    if isInit == true {
+                        Button(action: {
+                            modelData.addData()
+                            UserDefaults.standard.set(false, forKey: "isInit") /// onBoardingを閉じる（データを更新するコードも書くこと）
+                        }, label: {
+                            Text("作成").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
+                        })
+                    } else {
+                        Button(action: {
+                            modelData.addData()
+                            viewStatus.isShowEditView = false /// onBoardingを閉じる（データを更新するコードも書くこと）
+                        }, label: {
+                            Text("保存").padding().font(.custom("NotoSansJP-Medium", size: 20.0)).foregroundStyle(Color(UIColor(hexString: "333333")))
+                        })
+                    }
+                    
                 }
                 
             }

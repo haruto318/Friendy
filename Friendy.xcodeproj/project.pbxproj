@@ -103,7 +103,6 @@
 		64B65DF22B8749EE00C60D24 /* NotoSansJP-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-ExtraLight.ttf"; sourceTree = "<group>"; };
 		64B65DF32B8749EE00C60D24 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		64B65DF42B8749EE00C60D24 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		64B65E012B874A0B00C60D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		64B65E022B87A30E00C60D24 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		64B65E052B89953B00C60D24 /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
 		64B65E082B89D6DB00C60D24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -182,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				64B65E0F2B89DBDD00C60D24 /* CardListView */,
-				64B65E012B874A0B00C60D24 /* Info.plist */,
 				64B65DE72B8749EE00C60D24 /* Noto_Sans_JP  */,
 				64B65DB32B872B1400C60D24 /* FriendyApp.swift */,
 				64B65E022B87A30E00C60D24 /* DetailView.swift */,
